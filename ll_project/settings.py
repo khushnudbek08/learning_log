@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,8 +26,9 @@ SECRET_KEY = "django-insecure-^y9mr5tjt2kq^25ak3d9bjxr*_l8^5fn0@)nm4!)i=w7d^v^!5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+SECRET_KEY = os.environ.get("SECRET_KEY", "default-unsafe-key")
 
 # Application definition
 
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -135,3 +138,5 @@ MAILERS = {
 LOGIN_REDIRECT_URL = "learning_logs:index"
 LOGOUT_REDIRECT_URL = "learning_logs:index"
 LOGIN_URL = "accounts:login"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
