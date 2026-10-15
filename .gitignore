@@ -1,0 +1,11 @@
+venv/
+
+# Python kesh fayllari
+__pycache__/
+*.pyc
+
+# Mahalliy baza va muharrir keshlar
+db.sqlite3
+.env
+.vscode/
+.idea/

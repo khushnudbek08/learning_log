@@ -1,0 +1,5 @@
+We will write a web app called Learning Log that allows users to log the topics they have interests in and make journal entries as they learn about each topic. The learning log home page will discribe the site and read and edit existing entries.
+
+in second part we will add some paages to help users to add data by there own without andmin page. they will be able to add new data and edit it leter if nessasery. 
+
+then we build authentication system for creating accounts. 
